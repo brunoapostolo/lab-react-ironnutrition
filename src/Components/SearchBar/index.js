@@ -1,8 +1,17 @@
-import AddFoodForm from "../AddFoodform"
-import {useState} from "react";
+import { Divider, Input } from "antd";
 
-function SearchBar(){
+function SearchBar({search,setSearch}){
+    function handleChange(e){
+        setSearch(e.target.value)
+        console.log(search)
+    }
 
+    return (
+        <>
+            <label>Search</label>
+            <input value={search} type="text" onChange={handleChange}></input>
+        </>
+    )
 }
 
-export default
+export default SearchBar
