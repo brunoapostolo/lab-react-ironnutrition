@@ -1,3 +1,4 @@
+import InternalPreviewGroup from "antd/lib/image/PreviewGroup"
 import {useState,useRef} from "react"
 
 
@@ -7,11 +8,14 @@ function AddFoodForm({foods,setFoods}){
         name: "",
         image:"",
         calories:0,
-        serving:0
+        servings:0
     })
     function handleChange(e){
         setForm({...form, [e.target.name]:e.target.value})
 
+    }
+    function handleChangeNumber(e){
+        setForm({...form, [e.target.name] : Number(e.target.value)})
     }
     function handleSubmit(e){
         e.preventDefault()
@@ -26,9 +30,9 @@ function AddFoodForm({foods,setFoods}){
             <label>Image</label>
             <input  name="image" type="text" value={form.image} onChange={handleChange}></input>
             <label>Calories</label>
-            <input  name="calories" type="text" value={form.calories} onChange={handleChange}></input>
+            <input  name="calories" type="text" value={form.calories} onChange={handleChangeNumber}></input>
             <label>Servings</label>
-            <input  name="serving" type="text" value={form.serving} onChange={handleChange}></input>
+            <input  name="servings" type="text" value={form.servings} onChange={handleChangeNumber}></input>
             <button type="submit">Create product</button>
         </form>
     )
